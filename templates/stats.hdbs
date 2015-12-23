@@ -1,0 +1,4 @@
+<ul>
+  <li>{{bad_words_count}} Bad words found</li>
+  <li>{{bad_words_list}}</li>
+</ul>

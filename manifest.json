@@ -1,0 +1,29 @@
+{
+  "name": "Bad Word Detector",
+  "author": {
+    "name": "Fabio Vilela",
+    "email": "fvilela@zendesk.com",
+    "url": "http://zendesk.com"
+  },
+  "defaultLocale": "en",
+  "private": true,
+  "location": "ticket_sidebar",
+  "version": "1.0",
+  "frameworkVersion": "1.0",
+  "parameters": [
+    {
+      "name": "neutrino_api_user",
+      "type": "text",
+      "required": true,
+      "secure": false,
+      "default": "fbvilela"
+    },
+    {
+      "name": "neutrino_api_key",
+      "type": "text",
+      "required": true,
+      "secure": false,
+      "default": "zcDctj83XZxyIvIW8SgA1gscBlCmaOGC4BWBxqwJWNEZEZSV"
+    }
+  ]
+}
