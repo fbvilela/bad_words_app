@@ -21,8 +21,7 @@
         };
       }
     },
-    spellCheck: function() {
-      console.log('before the call');
+    spellCheck: _.debounce( function() {
       this.ajax('checkFilthyWords',
            {
              user_id: this.setting('neutrino_api_user'),
@@ -30,13 +29,18 @@
              comment_text: this.comment().text()
            }
          );
-         console.log('after the call');
-    },
+    }, 1000),
     processComment: function(data) {
       this.comment().text(data['censored-content']);
       console.info(data);
-      this.switchTo('stats', { bad_words_count: data['bad-words-total'], bad_words_list: data['bad-words-list']} )
+      this.switchTo('stats', function(){
+        if( this.comment().text().match(/\*{4,}/) != null ){
+          return { css_klass: 'icon-ok', message: 'Text has no bad words.'};
+        }
+        else{
+          return { css_klass: 'icon-remove', message: 'Text has bad words, please review.'};
+        }
+      });
     }
   };
-
 }());
